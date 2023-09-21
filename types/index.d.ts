@@ -1,3 +1,4 @@
+/** 基本配置 */
 export interface Option {
   /**
    * 群机器人 webhook 地址
