@@ -10,12 +10,20 @@ import type {
   VoiceOption,
 } from '../types';
 
+/** 企业微信 webhook 地址前缀 */
+const QYWECHAT_WEBHOOK_PREFIX = 'https://qyapi.weixin.qq.com/cgi-bin';
+
 /**
  * @private
  * 发送消息
  */
-async function send(url, data) {
+async function send(url: string, data: unknown) {
   try {
+    if (!url.startsWith(QYWECHAT_WEBHOOK_PREFIX)) {
+      throw new Error(
+        '非法 webhook。请提供合法的 webhook 地址。参考: https://open.work.weixin.qq.com/help2/pc/14931。',
+      );
+    }
     await axios.post(url, data);
   } catch (err) {
     console.error(err);
