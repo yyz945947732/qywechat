@@ -21,8 +21,6 @@ import { sendText } from 'qywechat';
 await sendText({
   url: 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=<yourkey>',
   content: '广州今日天气：29度，大部分多云，降雨概率：60%',
-  mentioned_list: ['wangqing', '@all'],
-  mentioned_mobile_list: ['13800001111', '@all'],
 });
 ```
 
@@ -33,10 +31,13 @@ await sendText({
 发送文本类型消息，详细可查看[企业微信文档](https://developer.work.weixin.qq.com/document/path/91770#%E6%96%87%E6%9C%AC%E7%B1%BB%E5%9E%8B)。
 
 ```js
-sendText(option: TextOption)
+sendText({
+  url: 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=<yourkey>',
+  content: '广州今日天气：29度，大部分多云，降雨概率：60%',
+  mentioned_list: ['wangqing', '@all'],
+  mentioned_mobile_list: ['13800001111', '@all'],
+});
 ```
-
-#### TextOption
 
 | 参数                  | 是否必填 | 说明                                                                                                                       |
 | --------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------- |
@@ -50,15 +51,16 @@ sendText(option: TextOption)
 发送 markdown 消息，详细可查看[企业微信文档](https://developer.work.weixin.qq.com/document/path/91770#markdown%E7%B1%BB%E5%9E%8B)。
 
 ```js
-sendText(option: MarkdownOption)
+sendMarkdown({
+  url: 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=<yourkey>',
+  content: '实时新增用户反馈<font color="warning">132例</font>，请相关同事注意。',
+});
 ```
-
-#### MarkdownOption
 
 | 参数    | 是否必填 | 说明                                                 |
 | ------- | -------- | ---------------------------------------------------- |
 | url     | 是       | 机器人的 webhook 地址                                |
-| content | 是       | markdown内容，最长不超过4096个字节，必须是 utf8 编码 |
+| content | 是       | markdown 内容，最长不超过 4096 个字节，必须是 utf8 编码 |
 
 ## LICENSE
 
