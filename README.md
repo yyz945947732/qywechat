@@ -2,6 +2,12 @@
 
 > 向企业微信群组发送消息
 
+<p>
+  <a href="https://www.npmjs.com/package/qywechat">
+    <img src="https://img.shields.io/npm/v/qywechat.svg" alt="Version" />
+  </a>
+</p>
+
 ## Features
 
 - 🚀 支持文本、markdown、图片、图文、文件、语音、模板卡片七种消息类型。
